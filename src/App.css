@@ -255,6 +255,7 @@ body {
   height: auto;
   min-width: 600px;
   border-radius: 10px;
-  box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.7); /* White glow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scale transition */
+  box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 1rem;
 }
