@@ -222,9 +222,9 @@ body {
 }
 
 .flashing {
-  animation: imageFlashEffect 1s linear infinite;
+  position: relative;
+  animation: imageFlashEffect 1s linear forwards 2;
 }
-
 .flashing::before {
   content: "";
   position: absolute;
@@ -234,26 +234,24 @@ body {
   bottom: 0;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
   opacity: 0;
-  animation: radialFocusGlow 1s linear infinite;
+  animation: radialFocusGlow 1s linear forwards 2;
   pointer-events: none;
 }
-
 @keyframes imageFlashEffect {
   0%, 100% {
-    filter: brightness(200%);
+      filter: brightness(200%);
   }
   50% {
-    filter: brightness(300%);
+      filter: brightness(300%);
   }
 }
-
 @keyframes radialFocusGlow {
   0%, 100% {
-    transform: scale(1.5);
-    opacity: 0;
+      transform: scale(1.5);
+      opacity: 0;
   }
   50% {
-    transform: scale(0.5);
-    opacity: 1;
+      transform: scale(0.5);
+      opacity: 1;
   }
 }

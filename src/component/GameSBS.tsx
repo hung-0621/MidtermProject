@@ -54,6 +54,7 @@ function GameSBS_Content() {
                         setIsFlashing(true)
                     } else if (newSecond === 8) {
                         set_sbs_state(SBS_State.switching_1);
+                        setIsFlashing(true)
                     } else if (newSecond === 6) {
                         set_sbs_state(SBS_State.holding);
                     } else if (newSecond === 3) {
