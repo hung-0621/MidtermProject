@@ -214,7 +214,7 @@ body {
 
 .fading {
   opacity: 0.1;
-  transition: opacity 2s ease-out;
+  transition: opacity 1s ease-out;
 }
 
 .GameSBS_Container img {
@@ -222,6 +222,6 @@ body {
   width: 720px;
   border-radius: 10px;
   box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.7);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 2s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 1s ease-out;
   margin-top: 1rem;
 }

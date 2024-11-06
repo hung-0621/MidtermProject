@@ -52,12 +52,12 @@ function GameSBS_Content() {
                     } else if (newSecond === 9) {
                         set_sbs_state(SBS_State.switching_2);
                         setIsFading(false);
-                    } else if (newSecond === 7) {
+                    } else if (newSecond === 8) {
                         set_sbs_state(SBS_State.switching_1);
                         setIsFading(true);
-                    } else if (newSecond === 5) {
+                    } else if (newSecond === 6) {
                         set_sbs_state(SBS_State.holding);
-                    } else if (newSecond === 2) {
+                    } else if (newSecond === 3) {
                         set_sbs_state(SBS_State.operating);
                     }
                     return newSecond;
