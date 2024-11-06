@@ -212,46 +212,16 @@ body {
   width: 100%;
 }
 
+.fading {
+  opacity: 0.0;
+  transition: opacity 2s ease-out;
+}
+
 .GameSBS_Container img {
   max-width: 100%;
   width: 720px;
   border-radius: 10px;
   box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.7);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 2s ease-out;
   margin-top: 1rem;
-}
-
-.flashing {
-  position: relative;
-  animation: imageFlashEffect 1s linear forwards 2;
-}
-.flashing::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
-  opacity: 0;
-  animation: radialFocusGlow 1s linear forwards 2;
-  pointer-events: none;
-}
-@keyframes imageFlashEffect {
-  0%, 100% {
-      filter: brightness(200%);
-  }
-  50% {
-      filter: brightness(300%);
-  }
-}
-@keyframes radialFocusGlow {
-  0%, 100% {
-      transform: scale(1.5);
-      opacity: 0;
-  }
-  50% {
-      transform: scale(0.5);
-      opacity: 1;
-  }
 }
