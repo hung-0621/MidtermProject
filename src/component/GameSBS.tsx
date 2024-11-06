@@ -5,7 +5,7 @@ export default function GameSBS() {
     return (
         <div className="Container Cyan-Shadow">
             <div className="GameSBS_Container">
-                <h3>幫桐人撐十秒</h3>
+                <h3 className="Title">幫桐人撐十秒</h3>
                 <GameSBS_Content></GameSBS_Content>
             </div>
         </div>
@@ -114,7 +114,7 @@ function GameSBS_Content() {
 
     return (
         <div>
-            <p>{isKeyPressing ? `Key "s" is being pressed.` : 'No key is pressed.'} {second}s</p>
+            {/* <p>{isKeyPressing ? `Key [s] is being pressed.` : 'No key is pressed.'} {second}s</p> */}
             <img
                 src={getImage()}
                 alt="SBS State"
