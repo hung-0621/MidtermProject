@@ -12,7 +12,6 @@ export default function GameSBS(){
 function GameSBS_Content(){
     return (
         <div>
-            <p>TEST</p>
         </div>
     )
 }
