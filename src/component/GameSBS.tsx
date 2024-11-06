@@ -12,12 +12,13 @@ export default function GameSBS() {
     )
 }
 
-const GameSBS_Content = () => {
+function GameSBS_Content() {
     const [sbs_state, set_sbs_state] = useState<SBS_State>(SBS_State.ready);
     const [isKeyPressing, setIsKeyPressing] = useState(false);
     const [second, setSecond] = useState(0);
+    const [isFlashing, setIsFlashing] = useState(false);
 
-    const getImage = (): string => {
+    function getImage(): string {
         const baseImgPath = "src/assets/SBS/";
         switch (sbs_state) {
             case SBS_State.ready:
@@ -48,6 +49,7 @@ const GameSBS_Content = () => {
                         set_sbs_state(SBS_State.succeed);
                     } else if (newSecond === 8) {
                         set_sbs_state(SBS_State.switching);
+                        setIsFlashing(true)
                     } else if (newSecond === 6) {
                         set_sbs_state(SBS_State.holding);
                     } else if (newSecond === 3) {
@@ -66,9 +68,30 @@ const GameSBS_Content = () => {
     }, [isKeyPressing, sbs_state]);
 
     useEffect(() => {
+        let flashIntervalId: number | null = null;
+        if (sbs_state === SBS_State.switching) {
+            let flashCount = 0;
+            flashIntervalId = setInterval(() => {
+                setIsFlashing((prev) => !prev);
+                flashCount++;
+                if (flashCount >= 4) {
+                    if (flashIntervalId) clearInterval(flashIntervalId);
+                    setIsFlashing(false);
+                }
+            }, 250);
+        } else {
+            setIsFlashing(false);
+        }
+
+        return () => {
+            if (flashIntervalId) clearInterval(flashIntervalId);
+        };
+    }, [sbs_state]);
+
+    useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (!isKeyPressing && event.key === 's' && sbs_state !== SBS_State.succeed) {
-                set_sbs_state(SBS_State.ready)
+                set_sbs_state(SBS_State.ready);
                 setIsKeyPressing(true);
             }
         };
@@ -92,7 +115,11 @@ const GameSBS_Content = () => {
     return (
         <div>
             <p>{isKeyPressing ? `Key "s" is being pressed.` : 'No key is pressed.'} {second}s</p>
-            <img src={getImage()} alt="SBS State" />
+            <img
+                src={getImage()}
+                alt="SBS State"
+                className={isFlashing ? 'flashing' : ''}
+            />
         </div>
     );
 };

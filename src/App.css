@@ -200,3 +200,41 @@ body {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.6); 
 }
+
+.flashing {
+  position: relative;
+  animation: imageFlashEffect 1s linear forwards 2;
+}
+
+.flashing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  animation: radialFocusGlow 1s linear forwards 2;
+  pointer-events: none; /* Ensure no interaction is blocked by the overlay */
+}
+
+@keyframes imageFlashEffect {
+  0%, 100% {
+      filter: brightness(200%);
+  }
+  50% {
+      filter: brightness(300%);
+  }
+}
+
+@keyframes radialFocusGlow {
+  0%, 100% {
+      transform: scale(1.5);
+      opacity: 0;
+  }
+  50% {
+      transform: scale(0.5);
+      opacity: 1;
+  }
+}
