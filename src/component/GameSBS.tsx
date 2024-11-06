@@ -79,11 +79,11 @@ function GameSBS_Content() {
             flashIntervalId = setInterval(() => {
                 setIsFlashing((prev) => !prev);
                 flashCount++;
-                if (flashCount >= 4) {
+                if (flashCount >= 8) {
                     if (flashIntervalId) clearInterval(flashIntervalId);
                     setIsFlashing(false);
                 }
-            }, 250);
+            }, 125);
         } else {
             setIsFlashing(false);
         }
