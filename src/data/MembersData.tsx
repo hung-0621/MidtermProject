@@ -9,8 +9,8 @@ const member_1: MemberInfoProps = {
 
 const member_2: MemberInfoProps = {
     name: "ZZY",
-    title: "不明",
-    description: "這個人很懶，所以什麼都沒留在這...",
+    title: "實力擔當",
+    description: "團隊裡最強，可是一直裝弱，沒人知道為什麼",
     img_src:'src/assets/members/2.jpg'
 }
 
