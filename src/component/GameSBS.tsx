@@ -57,7 +57,7 @@ function GameSBS_Content() {
                         setIsFading(true);
                     } else if (newSecond === 5) {
                         set_sbs_state(SBS_State.holding);
-                    } else if (newSecond === 3) {
+                    } else if (newSecond === 2) {
                         set_sbs_state(SBS_State.operating);
                     }
                     return newSecond;
