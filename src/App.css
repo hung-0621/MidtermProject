@@ -201,9 +201,28 @@ body {
   box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.7)
 }
 
+.GameSBS_Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  max-width: 720px;
+  width: 100%;
+}
+
+.GameSBS_Container img {
+  max-width: 100%;
+  width: 720px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 1rem;
+}
+
 .flashing {
-  position: relative;
-  animation: imageFlashEffect 1s linear forwards 2;
+  animation: imageFlashEffect 1s linear infinite;
 }
 
 .flashing::before {
@@ -215,47 +234,26 @@ body {
   bottom: 0;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
   opacity: 0;
-  animation: radialFocusGlow 1s linear forwards 2;
-  pointer-events: none; /* Ensure no interaction is blocked by the overlay */
+  animation: radialFocusGlow 1s linear infinite;
+  pointer-events: none;
 }
 
 @keyframes imageFlashEffect {
   0%, 100% {
-      filter: brightness(200%);
+    filter: brightness(200%);
   }
   50% {
-      filter: brightness(300%);
+    filter: brightness(300%);
   }
 }
 
 @keyframes radialFocusGlow {
   0%, 100% {
-      transform: scale(1.5);
-      opacity: 0;
+    transform: scale(1.5);
+    opacity: 0;
   }
   50% {
-      transform: scale(0.5);
-      opacity: 1;
+    transform: scale(0.5);
+    opacity: 1;
   }
-}
-
-.GameSBS_Container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 10px;
-  max-width: 600px;
-  width: 100%;
-}
-
-.GameSBS_Container img {
-  max-width: 100%;
-  height: auto;
-  min-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.7);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-top: 1rem;
 }

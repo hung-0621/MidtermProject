@@ -27,10 +27,12 @@ function GameSBS_Content() {
                 return `${baseImgPath}operating.png`;
             case SBS_State.holding:
                 return `${baseImgPath}holding.png`;
-            case SBS_State.switching:
-                return `${baseImgPath}switching.png`;
+            case SBS_State.switching_1:
+                return `${baseImgPath}switching_1.png`;
+            case SBS_State.switching_2:
+                return `${baseImgPath}switching_2.png`;
             case SBS_State.failed:
-                return `${baseImgPath}failed.jpg`;
+                return `${baseImgPath}failed.png`;
             case SBS_State.succeed:
                 return `${baseImgPath}SBS.gif`;
             default:
@@ -47,9 +49,11 @@ function GameSBS_Content() {
                     const newSecond = prevSecond + 1;
                     if (newSecond === 10) {
                         set_sbs_state(SBS_State.succeed);
-                    } else if (newSecond === 8) {
-                        set_sbs_state(SBS_State.switching);
+                    } else if (newSecond === 9) {
+                        set_sbs_state(SBS_State.switching_2);
                         setIsFlashing(true)
+                    } else if (newSecond === 8) {
+                        set_sbs_state(SBS_State.switching_1);
                     } else if (newSecond === 6) {
                         set_sbs_state(SBS_State.holding);
                     } else if (newSecond === 3) {
@@ -69,7 +73,7 @@ function GameSBS_Content() {
 
     useEffect(() => {
         let flashIntervalId: number | null = null;
-        if (sbs_state === SBS_State.switching) {
+        if (sbs_state === SBS_State.switching_2 || sbs_state === SBS_State.switching_1) {
             let flashCount = 0;
             flashIntervalId = setInterval(() => {
                 setIsFlashing((prev) => !prev);
@@ -120,6 +124,7 @@ function GameSBS_Content() {
                 alt="SBS State"
                 className={isFlashing ? 'flashing' : ''}
             />
+            <p>{sbs_state}</p>
         </div>
     );
 };

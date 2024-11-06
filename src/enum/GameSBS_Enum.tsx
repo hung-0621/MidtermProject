@@ -3,6 +3,7 @@ export enum SBS_State {
     operating = "操作中...",
     holding = "哈哈魔眼",
     failed = "哥們，連十秒都不行😅",
-    switching = "switch !!",
+    switching_1 = "切換 !",
+    switching_2 = "切換 !!",
     succeed = "十大八石頭 !!"
 }
