@@ -1,16 +1,16 @@
 import { MemberInfoProps, MembersProps } from "../interface/MembersProps";
 
 const member_1: MemberInfoProps = {
-    name: "LZH",
-    title: "偷卷怪",
-    description: "非常卷，在廁所卷、在深夜卷、在什麼地方都能偷卷",
+    name: "LCH",
+    title: "卍☆煞氣a太麻里隔壁安住音台林老木☆卍",
+    description: "台東在地原始人，在地砍柴經歷長達30年。朝五晚九專業伐木，江湖人稱無情的砍柴機器。歡迎來我家看會倒立的山豬",
     img_src:'src/assets/members/1.jpg'
 }
 
 const member_2: MemberInfoProps = {
     name: "ZZY",
-    title: "不明",
-    description: "這個人很懶，所以什麼都沒留在這...",
+    title: "實力擔當",
+    description: "團隊裡最強，可是一直裝弱，沒人知道為什麼",
     img_src:'src/assets/members/2.jpg'
 }
 
