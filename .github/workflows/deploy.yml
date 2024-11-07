@@ -24,7 +24,7 @@ jobs:
 
       - name: Create .env file from GitHub environment variables
         run: |
-          echo "VITE_IS_GH_PAGE=${{ env.VITE_IS_GH_PAGE }}" >> .env
+          echo "VITE_IS_GH_PAGE=true" >> .env
 
       - name: Check .env file contents
         run: cat .env
