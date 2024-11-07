@@ -55,7 +55,7 @@ function ApiTestContent() {
     return (
         <div>
             <button onClick={getOneRandImg}>Get New Random Image</button>
-            <div className="image-container">
+            <div className="image-container White-Shadow">
                 {isLoading && (
                     <div className="placeholder">Loading...</div>
                 )}
@@ -67,7 +67,7 @@ function ApiTestContent() {
                         onLoad={() => setIsLoading(false)}
                     />
                 )}
-                {errorMsg && <p className="error-message">{errorMsg}</p>}
+                {errorMsg && <p className="">{errorMsg}</p>}
             </div>
         </div>
     );

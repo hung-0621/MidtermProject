@@ -261,5 +261,6 @@ body {
 }
 
 .image-container img:hover{
-  transform: scale(0.95);
+  transform: scale(1);
+  cursor: pointer;
 }
