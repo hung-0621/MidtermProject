@@ -1,6 +1,7 @@
 import Members from "./Members";
 import Team from "./Team";
 import GameSBS from "./GameSBS";
+import ApiTest from "./ApiTest";
 
 export default function Content(){
     return (
@@ -8,6 +9,7 @@ export default function Content(){
             <Team></Team>
             <Members></Members>
             <GameSBS></GameSBS>
+            {/* <ApiTest></ApiTest> */}
         </div>
     )
 }
