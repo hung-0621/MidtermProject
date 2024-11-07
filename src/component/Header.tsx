@@ -1,8 +1,9 @@
 import {HeaderImageProps, HeaderTitleProps} from "../interface/HeaderProps"
+import { BaseImgPath } from "../data/BaseImgPath"
 
 export default function Header(){
 
-    const img_src = "src/assets/icon.png"
+    const img_src = `${BaseImgPath}icon.png`
     const navbar_title = "TKUIMWD"
 
     return (

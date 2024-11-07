@@ -1,9 +1,10 @@
 import { TeamImageProps, TeamIntroProps, TeamTitleProps } from "../interface/TeamProps"
+import { BaseImgPath } from "../data/BaseImgPath"
 
 export default function Team() {
     const team_title = "關於團隊"
     const team_intro = ["TKUIMWD - TKUIM Wash Dishes", "中文名為「淡江資管畢業刷碗」", "碰啥鍵盤，刷碗盤比較實際", "---- ZZY 可能沒有說過"]
-    const img_src = "src/assets/wd.jpg"
+    const img_src = `${BaseImgPath}wd.jpg`
 
     return (
         <div className="Container Cyan-Shadow">

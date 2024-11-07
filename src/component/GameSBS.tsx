@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { SBS_State } from "../enum/GameSBS_Enum";
+import { BaseImgPath } from "../data/BaseImgPath";
 
 export default function GameSBS() {
     return (
@@ -19,22 +20,22 @@ function GameSBS_Content() {
     const [isFading, setIsFading] = useState(false);
 
     function getImage(): string {
-        const baseImgPath = "src/assets/SBS/";
+        const SBSImgPath = `${BaseImgPath}SBS/`;
         switch (sbs_state) {
             case SBS_State.ready:
-                return `${baseImgPath}10s.png`;
+                return `${SBSImgPath}10s.png`;
             case SBS_State.operating:
-                return `${baseImgPath}operating.png`;
+                return `${SBSImgPath}operating.png`;
             case SBS_State.holding:
-                return `${baseImgPath}holding.png`;
+                return `${SBSImgPath}holding.png`;
             case SBS_State.switching_1:
-                return `${baseImgPath}switching_1.png`;
+                return `${SBSImgPath}switching_1.png`;
             case SBS_State.switching_2:
-                return `${baseImgPath}switching_2.png`;
+                return `${SBSImgPath}switching_2.png`;
             case SBS_State.failed:
-                return `${baseImgPath}failed.png`;
+                return `${SBSImgPath}failed.png`;
             case SBS_State.succeed:
-                return `${baseImgPath}SBS.gif`;
+                return `${SBSImgPath}SBS.gif`;
             default:
                 return "";
         }
@@ -44,6 +45,8 @@ function GameSBS_Content() {
         let intervalId: number | null = null;
 
         if (isKeyPressing && sbs_state !== SBS_State.succeed) {
+            const a = import.meta.env.VITE_IS_GH_PAGES;
+            console.log(a);
             intervalId = setInterval(() => {
                 setSecond((prevSecond) => {
                     const newSecond = prevSecond + 1;
