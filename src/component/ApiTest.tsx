@@ -3,17 +3,25 @@ import { waifu_Url } from '../data/Api';
 import { ImageData } from '../interface/WaifuApi';
 
 export default function ApiTest() {
+    return (
+        <div className='Container Cyan-Shadow'>
+            <ApiTestContent />
+        </div>
+    );
+}
+
+function ApiTestContent() {
     const [imgSrc, setImgSrc] = useState<string | null>(null);
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     type QueryParams = {
         [key: string]: string | string[];
     };
 
     const params: QueryParams = {};
-
     const queryParams = new URLSearchParams();
-
+    
     Object.entries(params).forEach(([key, value]) => {
         if (Array.isArray(value)) {
             value.forEach(v => queryParams.append(key, v));
@@ -26,11 +34,12 @@ export default function ApiTest() {
 
     async function getOneRandImg() {
         setErrorMsg(null); // Clear any previous error message
+        setIsLoading(true); // Show loading state
+
         try {
             const response = await fetch(requestUrl);
 
             if (!response.ok) {
-                // Try to extract the error message from the response JSON if available
                 const errorData = await response.json();
                 const message = errorData.detail || `Error: ${response.status} ${response.statusText}`;
                 setErrorMsg(message);
@@ -44,20 +53,32 @@ export default function ApiTest() {
                 setImgSrc(data.images[0].url);
             } else {
                 setErrorMsg('No images found in response');
+                setIsLoading(false);
             }
         } catch (error) {
-            // Generic error handling for unexpected errors
             setErrorMsg((error as Error).message || 'An unknown error occurred');
+            setIsLoading(false);
         }
     }
 
     return (
         <div>
-            <h3 className='Container Cyan-Shadow'>
-                <button onClick={getOneRandImg}>Get Random Image</button>
-            </h3>
-            {imgSrc && <img src={imgSrc} alt="Random Anime Character" />}
-            {errorMsg && <p className="error-message">{errorMsg}</p>}
+            <button onClick={getOneRandImg}>Get Random Image</button>
+            <div className="image-container">
+                {isLoading && (
+                    <div className="placeholder">
+                        <div className="spinner" />
+                    </div>
+                )}
+                {imgSrc && (
+                    <img
+                        src={imgSrc}
+                        alt="Random Anime Character"
+                        onLoad={() => setIsLoading(false)} // Hide loading state when image is fully loaded
+                    />
+                )}
+                {errorMsg && <p className="error-message">{errorMsg}</p>}
+            </div>
         </div>
     );
 }

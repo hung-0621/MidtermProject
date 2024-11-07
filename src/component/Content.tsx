@@ -9,7 +9,7 @@ export default function Content(){
             <Team></Team>
             <Members></Members>
             <GameSBS></GameSBS>
-            {/* <ApiTest></ApiTest> */}
+            <ApiTest></ApiTest>
         </div>
     )
 }
