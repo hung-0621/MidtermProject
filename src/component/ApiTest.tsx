@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { waifu_Url } from '../data/Api';
 import { ImageData } from '../interface/WaifuApi';
 
@@ -11,30 +11,16 @@ export default function ApiTest() {
 }
 
 function ApiTestContent() {
-    const [imgSrc, setImgSrc] = useState<string | null>(null);
+    const [imgSrc, setImgSrc] = useState<string>('');
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    type QueryParams = {
-        [key: string]: string | string[];
-    };
-
-    const params: QueryParams = {};
-    const queryParams = new URLSearchParams();
-    
-    Object.entries(params).forEach(([key, value]) => {
-        if (Array.isArray(value)) {
-            value.forEach(v => queryParams.append(key, v));
-        } else {
-            queryParams.set(key, value);
-        }
-    });
-
-    const requestUrl = `${waifu_Url}?${queryParams.toString()}`;
+    const requestUrl = `${waifu_Url}`;
+    const isMounted = useRef(false);
 
     async function getOneRandImg() {
-        setErrorMsg(null); // Clear any previous error message
-        setIsLoading(true); // Show loading state
+        setErrorMsg(null);
+        setIsLoading(true);
 
         try {
             const response = await fetch(requestUrl);
@@ -47,13 +33,11 @@ function ApiTestContent() {
             }
 
             const data: ImageData = await response.json();
-            console.log(data);
-
             if (data.images && data.images.length > 0) {
+                console.log(data);
                 setImgSrc(data.images[0].url);
             } else {
                 setErrorMsg('No images found in response');
-                setIsLoading(false);
             }
         } catch (error) {
             setErrorMsg((error as Error).message || 'An unknown error occurred');
@@ -61,20 +45,26 @@ function ApiTestContent() {
         }
     }
 
+    useEffect(() => {
+        if (!isMounted.current) {
+            getOneRandImg();
+            isMounted.current = true;
+        }
+    }, []);
+
     return (
         <div>
-            <button onClick={getOneRandImg}>Get Random Image</button>
+            <button onClick={getOneRandImg}>Get New Random Image</button>
             <div className="image-container">
                 {isLoading && (
-                    <div className="placeholder">
-                        <div className="spinner" />
-                    </div>
+                    <div className="placeholder">Loading...</div>
                 )}
                 {imgSrc && (
                     <img
                         src={imgSrc}
                         alt="Random Anime Character"
-                        onLoad={() => setIsLoading(false)} // Hide loading state when image is fully loaded
+                        style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.3s ease' }} // Set opacity inline
+                        onLoad={() => setIsLoading(false)}
                     />
                 )}
                 {errorMsg && <p className="error-message">{errorMsg}</p>}
