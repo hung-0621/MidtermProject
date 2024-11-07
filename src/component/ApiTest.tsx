@@ -15,7 +15,25 @@ function ApiTestContent() {
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    const requestUrl = `${waifu_Url}`;
+    type QueryParams = {
+        [key: string]: string | string[];
+    };
+
+    const params: QueryParams = {
+        is_nsfw:"false"
+    };
+
+    const queryParams = new URLSearchParams();
+
+    Object.entries(params).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+            value.forEach(v => queryParams.append(key, v));
+        } else {
+            queryParams.set(key, value);
+        }
+    });
+
+    const requestUrl = `${waifu_Url}?${queryParams.toString()}`;
     const isMounted = useRef(false);
 
     async function getOneRandImg() {
