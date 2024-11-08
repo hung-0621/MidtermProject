@@ -232,6 +232,7 @@ body {
   height: 480px;
   overflow:hidden;
   border-radius: 12px;
+  margin-top: 40px;
 }
 
 .placeholder {
@@ -261,6 +262,42 @@ body {
 }
 
 .image-container img:hover{
-  transform: scale(1);
+  transform: scale(1.2);
   cursor: pointer;
+}
+
+.api-test-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.GeneralButtons {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.GeneralButtons button {
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  max-width: 300px;
+  background-color: rgb(77, 166, 239);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  margin-bottom: 1rem;
+}
+
+.GeneralButtons button:hover {
+  transform: scale(1.05);
+  background-color: rgb(101, 222, 255);
 }
