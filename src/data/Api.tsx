@@ -1,0 +1,1 @@
+export const waifu_Url = 'https://api.waifu.im/search';
