@@ -38,4 +38,4 @@ export const members_data: MembersProps = {
     ]
 }
 
-export const group_pic = `${MembersImgPath}group.png`
+export const group_pic = `${MembersImgPath}group.jpg`
