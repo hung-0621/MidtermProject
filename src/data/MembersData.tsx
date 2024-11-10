@@ -13,7 +13,7 @@ const member_1: MemberInfoProps = {
 const member_2: MemberInfoProps = {
     name: "ZZY",
     title: "卍☆煞氣a桃園金錢豹☆卍",
-    description: "團隊中的主幹、實力擔當，個性十分「封閉」是一名「獨行玩家」，家世背景雄厚，信義區的地契比淡江大學圖書館的藏書還多",
+    description: "團隊中的主幹、實力擔當，個性十分「封弊」是一名「獨行玩家」，家世背景雄厚，信義區的地契比淡江大學圖書館的藏書還多",
     img_src:`${MembersImgPath}2.jpg`
 }
 
