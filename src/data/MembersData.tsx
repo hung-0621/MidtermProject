@@ -12,21 +12,21 @@ const member_1: MemberInfoProps = {
 
 const member_2: MemberInfoProps = {
     name: "ZZY",
-    title: "實力擔當",
-    description: "團隊裡最強，可是一直裝弱，沒人知道為什麼",
+    title: "卍☆煞氣a桃園金錢豹☆卍",
+    description: "團隊中的主幹、實力擔當，個性十分「封閉」是一名「獨行玩家」，家世背景雄厚，信義區的地契比淡江大學圖書館的藏書還多",
     img_src:`${MembersImgPath}2.jpg`
 }
 
 const member_3: MemberInfoProps = {
     name: "LTA",
-    title: "洗碗大師",
+    title: "卍☆煞氣a淡水洗碗大師☆卍",
     description: "10年洗碗經驗，精通各種洗碗技巧，歡迎各大廠商洽談",
     img_src:`${MembersImgPath}3.jpg`
 }
 
 const member_4: MemberInfoProps = {
     name: "HPW",
-    title: "很菜的資安肥宅",
+    title: "卍☆煞氣a很菜的資安肥宅☆卍",
     description: "這個人睡眠不足，所以什麼都沒留在這...",
     img_src:`${MembersImgPath}4.jpg`
 }
@@ -38,4 +38,4 @@ export const members_data: MembersProps = {
     ]
 }
 
-export const group_pic = `${MembersImgPath}group.png`
+export const group_pic = `${MembersImgPath}group.jpg`
