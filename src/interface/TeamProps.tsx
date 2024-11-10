@@ -4,6 +4,7 @@ export interface TeamTitleProps{
 
 export interface TeamIntroProps{
     intro:Array<string>
+    font:Array<string>
 }
 
 export interface TeamImageProps{
