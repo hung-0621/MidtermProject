@@ -45,8 +45,6 @@ function GameSBS_Content() {
         let intervalId: number | null = null;
 
         if (isKeyPressing && sbs_state !== SBS_State.succeed) {
-            const a = import.meta.env.VITE_IS_GH_PAGES;
-            console.log(a);
             intervalId = setInterval(() => {
                 setSecond((prevSecond) => {
                     const newSecond = prevSecond + 1;
