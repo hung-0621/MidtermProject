@@ -301,7 +301,7 @@ body {
 .GeneralButtons button {
   font-size: 1.2rem;
   padding: 12px 30px;
-  max-width: 300px;
+  width: 180px;
   background-color: rgb(77, 166, 239);
   color: white;
   border: none;
@@ -314,6 +314,15 @@ body {
 .GeneralButtons button:hover {
   transform: scale(1.05);
   background-color: rgb(101, 222, 255);
+}
+
+.pink-button {
+  background-color: rgb(251, 124, 146) !important;
+}
+
+.pink-button:hover {
+  transform: scale(1.05) !important;
+  background-color: rgb(255, 151, 167) !important;
 }
 
 .Footer {
