@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface Tag {
     description: string;
     is_nsfw: boolean;
@@ -35,4 +37,13 @@ export interface Image {
 
 export interface ImageData {
     images: Image[];
+}
+
+export default interface WaifuApiProps{
+    is_nsfw:boolean
+    secret:string
+    input:string
+    maxInputLen:number
+    setIs_nsfw: Dispatch<SetStateAction<boolean>>
+    setInput: Dispatch<SetStateAction<string>>
 }
