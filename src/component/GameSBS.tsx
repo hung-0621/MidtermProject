@@ -42,7 +42,7 @@ function GameSBS_Content() {
     }
 
     useEffect(() => {
-        let intervalId: number | null = null;
+        let intervalId: NodeJS.Timeout;
 
         if (isKeyPressing && sbs_state !== SBS_State.succeed) {
             intervalId = setInterval(() => {
